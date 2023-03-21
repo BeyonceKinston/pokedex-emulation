@@ -2,9 +2,16 @@ var textboxEl = document.querySelector('#textbox-input');
 
 var userInput = textboxEl.value;
 
-// fetch('https://pokeapi.co/api/v2/pokemon/' + userInput + '/')
+var submitButton = document.querySelector('#submit-button');
 
-fetch('https://pokeapi.co/api/v2/pokemon/gengar')
+
+
+
+
+// fetch('https://pokeapi.co/api/v2/pokemon/' + userInput + '/')
+function getAPI(){
+	var userInput = textboxEl.value;
+fetch('https://pokeapi.co/api/v2/pokemon/' + userInput + '/')
 
 	.then(function(response) {
 
@@ -20,4 +27,8 @@ fetch('https://pokeapi.co/api/v2/pokemon/gengar')
 	.catch(function(error) {
         
 		// if not in library, say couldn’t be found
-	});
+	})};
+
+	submitButton.addEventListener('click', getAPI);
+	console.log(getAPI);
+
