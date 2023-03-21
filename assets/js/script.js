@@ -11,10 +11,14 @@ var displayCard = function (data) {
 	var cardEl = document.createElement("div");
 	cardEl.classList.add("card");
 	cardEl.textContent = data.name;
+
+	var imgEl = document.createElement("img");
+	imgEl.src = data.sprites.front_default;
+
 	pokeContainer.append(cardEl);
+	cardEl.append(imgEl);
 }
 
-// fetch('https://pokeapi.co/api/v2/pokemon/' + userInput + '/')
 function getAPI() {
 	var userInput = textboxEl.value;
 	fetch('https://pokeapi.co/api/v2/pokemon/' + userInput + '/')
@@ -26,7 +30,6 @@ function getAPI() {
 
 		.then(function (data) {
 
-			console.log(data);
 			displayCard(data);
 		})
 
@@ -37,5 +40,4 @@ function getAPI() {
 };
 
 submitButton.addEventListener('click', getAPI);
-console.log(getAPI);
 
