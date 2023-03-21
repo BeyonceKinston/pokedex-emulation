@@ -15,6 +15,8 @@ var displayCard = function (data) {
 	var imgEl = document.createElement("img");
 	imgEl.src = data.sprites.front_default;
 
+	cardEl.style.backgroundColor = '#ADD8E6';
+
 	pokeContainer.append(cardEl);
 	cardEl.append(imgEl);
 }
