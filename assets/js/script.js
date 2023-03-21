@@ -4,7 +4,7 @@ var userInput = textboxEl.value;
 
 // fetch('https://pokeapi.co/api/v2/pokemon/' + userInput + '/')
 
-fetch('https://pokeapi.co/api/v2/pokemon/gengarini')
+fetch('https://pokeapi.co/api/v2/pokemon/gengar')
 
 	.then(function(response) {
 
