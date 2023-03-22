@@ -52,6 +52,7 @@ function getAPI() {
 	while (pokeContainer.firstChild) {
 		pokeContainer.removeChild(pokeContainer.firstChild);
 	  }
+	  textboxEl.value = "";
 
 	fetch('https://pokeapi.co/api/v2/pokemon/' + userInput + '/')
 
@@ -65,7 +66,7 @@ function getAPI() {
 			displayCard(data);
 			console.log(data)
 		})
-
+		
 		.catch(function (error) {
 
 			// if not in library, say couldn’t be found
@@ -103,6 +104,12 @@ function displayAllPokemon() {
 };
 
 submitButton.addEventListener('click', getAPI);
-backButton.addEventListener('click', displayAllPokemon)
+backButton.addEventListener('click', displayAllPokemon);
+textboxEl.addEventListener('keypress', function (e) {
+	    if (e.key === 'Enter') {
+	      getAPI();
+	    }
+	});
+
 displayAllPokemon();
 
