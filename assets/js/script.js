@@ -27,9 +27,7 @@ var displayCard = function (data) {
 			typeEl.textContent = data.types[0].type.name + " / " + data.types[1].type.name;
 			}
 		} else {
-			
 			typeEl.textContent = data.types[0].type.name;
-	
 		}
 		cardEl.append(typeEl)
 
