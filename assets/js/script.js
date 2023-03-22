@@ -3,6 +3,7 @@ var textboxEl = document.querySelector('#textbox-input');
 var userInput = textboxEl.value;
 
 var submitButton = document.querySelector('#submit-button');
+var backButton = document.querySelector('#go-back');
 
 
 var pokeContainer = document.querySelector('#poke-container')
@@ -48,6 +49,9 @@ function getAPI() {
 
 	// Change #2
 	var userInput = textboxEl.value.toLowerCase();
+	while (pokeContainer.firstChild) {
+		pokeContainer.removeChild(pokeContainer.firstChild);
+	  }
 
 	fetch('https://pokeapi.co/api/v2/pokemon/' + userInput + '/')
 
@@ -92,5 +96,6 @@ function displayAllPokemon() {
 };
 
 submitButton.addEventListener('click', getAPI);
+backButton.addEventListener('click', displayAllPokemon)
 displayAllPokemon();
 
