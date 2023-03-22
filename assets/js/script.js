@@ -8,9 +8,10 @@ var submitButton = document.querySelector('#submit-button');
 var pokeContainer = document.querySelector('#poke-container')
 
 var displayCard = function (data) {
+	var columnEl = document.createElement("div");
 	var cardEl = document.createElement("div");
-	cardEl.classList.add("card");
-	cardEl.classList.add("mb-5");
+	columnEl.classList.add("column", "is-one-third");
+	cardEl.classList.add("card","mb-5");
 	cardEl.textContent = data.name;
 
 	var imgEl = document.createElement("img");
@@ -20,8 +21,8 @@ var displayCard = function (data) {
 
 	var idEl = document.createElement("div");
 	idEl.textContent = "Pokedex # : " + data.id;
-
-	pokeContainer.append(cardEl);
+	pokeContainer.append(columnEl);
+	columnEl.append(cardEl);
 	cardEl.append(imgEl);
 	cardEl.append(idEl);
 	var typeEl = document.createElement("type");
@@ -69,7 +70,7 @@ function getAPI() {
 
 function displayAllPokemon() {
 
-	for (var i = 0; i < 1281; i++) {
+	for (var i = 1; i < 150; i++) {
 		
 		fetch('https://pokeapi.co/api/v2/pokemon/' + i + '/')
 

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pokedex</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -12,36 +13,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="columns">
-        <div id="search-container" class="column is-one-third has-background-grey is-fullheight">
-            <h1>Pokedex Search</h1>
-            <input class="input is-normal" type="text" placeholder="Normal input" id="textbox-input">
-            <div class="select is-small">
-                <select>
-                  <option>Select dropdown</option>
-                  <option>Pokemon</option>
-                  <option>Types</option>
-                  <option>Items</option>
-                  <option>Abilities</option>
-                </select>
-              </div>
-                <div>
-                    <button class="button" id="submit-button">Submit</button>
-                    
+
+<body class="has-background-danger">
+    <div class="container is-fullhd">
+        <div class="columns">
+            <div class="column is-one-third has-background-grey is-fullheight">
+                <div id="search-container">
+                    <h1>Pokedex Search</h1>
+                    <input class="input is-normal" type="text" placeholder="Normal input" id="textbox-input">
+                    <div class="select is-small">
+                        <select>
+                            <option>Select dropdown</option>
+                            <option>Pokemon</option>
+                            <option>Types</option>
+                            <option>Items</option>
+                            <option>Abilities</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button class="button" id="submit-button">Submit</button>
+                    </div>
                 </div>
+            </div>
+            <div id="search-result-container" class="column is-two-thirds has-background-danger is-fullheight">
+                <h1>Pokedex Cards</h1>
+                <div id="poke-container" class="columns is-multiline">
+                </div>
+            </div>
         </div>
-        <div id="search-result-container" class="column is-two-thirds has-background-danger is-fullheight">
-            <h1>Pokedex Cards</h1>
-
-            <div id="poke-container"></div>
-            
-
-        </div>
-        
     </div>
 
-
-<script src="./assets/js/script.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
