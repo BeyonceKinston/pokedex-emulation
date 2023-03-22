@@ -14,11 +14,14 @@ var displayCard = function (data) {
 
 	var imgEl = document.createElement("img");
 	imgEl.src = data.sprites.front_default;
+	var numEl = document.createElement("p");
+	numEl.textContent = data.id;
 
 	cardEl.style.backgroundColor = '#ADD8E6';
 
 	pokeContainer.append(cardEl);
 	cardEl.append(imgEl);
+	cardEl.append(numEl);
 }
 
 function getAPI() {
