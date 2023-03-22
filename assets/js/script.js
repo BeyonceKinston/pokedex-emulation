@@ -17,12 +17,12 @@ var displayCard = function (data) {
 	var numEl = document.createElement("p");
 	numEl.textContent = data.id;
 
-	cardEl.style.backgroundColor = '#ADD8E6';
+	var idEl = document.createElement("div");
+	idEl.textContent = "Pokedex # : " + data.id;
 
 	pokeContainer.append(cardEl);
 	cardEl.append(imgEl);
-	cardEl.append(numEl);
-}
+
 
 function getAPI() {
 	var userInput = textboxEl.value;
@@ -36,6 +36,7 @@ function getAPI() {
 		.then(function (data) {
 
 			displayCard(data);
+			console.log(data)
 		})
 
 		.catch(function (error) {
