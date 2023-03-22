@@ -1,14 +1,13 @@
 var textboxEl = document.querySelector('#textbox-input');
-
 var userInput = textboxEl.value;
-
 var submitButton = document.querySelector('#submit-button');
 var backButton = document.querySelector('#go-back');
+var pokeContainer = document.querySelector('#poke-container');
 
-
-var pokeContainer = document.querySelector('#poke-container')
+var searchCounter = 0;
 
 var displayCard = function (data) {
+
 	var columnEl = document.createElement("div");
 	var cardEl = document.createElement("div");
 	columnEl.classList.add("column", "is-one-third");
@@ -43,10 +42,11 @@ var displayCard = function (data) {
 	cardEl.append(typeEl)
 
 	cardEl.style.backgroundColor = '#ADD8E6';
-	}
+};
 
 function getAPI() {
 
+	searchCounter++;
 	// Change #2
 	var userInput = textboxEl.value.toLowerCase();
 	while (pokeContainer.firstChild) {
@@ -74,7 +74,14 @@ function getAPI() {
 
 function displayAllPokemon() {
 
-	for (var i = 1; i < 150; i++) {
+	if (searchCounter > 0) {
+
+		while (pokeContainer.firstChild) {
+			pokeContainer.removeChild(pokeContainer.firstChild);
+		  }
+	}
+
+	for (var i = 1; i <= 150; i++) {
 		
 		fetch('https://pokeapi.co/api/v2/pokemon/' + i + '/')
 
