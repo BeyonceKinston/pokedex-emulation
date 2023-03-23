@@ -3,26 +3,21 @@
 var submitButton = document.querySelector('#submit-button');
 var backButton = document.querySelector('#go-back');
 var pokeContainer = document.querySelector('#poke-container');
-
+var headStyle = document.querySelector("#title-head");
+var searchStyle = document.querySelector("#search-column");
 var searchCounter = 0;
 var savedSearches = []
 
-// function storeSearches(){
-// 	localStorage.setItem("pokesearches", savedSearches);
-
-
-// }
-// storeSearches();
+searchStyle.style.border = "3px solid white";
+headStyle.style.border = "3px solid white";
 
 var displayCard = function (data) {
-	
-
 	var columnEl = document.createElement("div");
 	var cardEl = document.createElement("div");
 	columnEl.classList.add("column", "is-one-third");
-	cardEl.classList.add("card","mb-5");
+	cardEl.classList.add("card", "mb-5");
 	cardEl.textContent = data.name;
-
+	cardEl.style.border = "3px solid white";
 	var imgEl = document.createElement("img");
 	imgEl.src = data.sprites.front_default;
 	var numEl = document.createElement("p");
@@ -44,10 +39,10 @@ var displayCard = function (data) {
 
 		}
 	} else {
-		
+
 		typeEl.textContent = data.types[0].type.name;
 	}
-	
+
 	cardEl.append(typeEl)
 
 	cardEl.style.backgroundColor = '#ADD8E6';
@@ -59,15 +54,14 @@ function getAPI() {
 	var userInputLowerCase = userInput.toLowerCase();
 	console.log(userInput);
 	searchCounter++;
-	// Change #2
-	
+
 	savedSearches.push(userInputLowerCase);
 	localStorage.setItem("pokesearches", JSON.stringify(savedSearches));
 
 	while (pokeContainer.firstChild) {
 		pokeContainer.removeChild(pokeContainer.firstChild);
-	  }
-	  textboxEl.value = "";
+	}
+	textboxEl.value = "";
 
 	fetch('https://pokeapi.co/api/v2/pokemon/' + userInput + '/')
 
@@ -81,10 +75,9 @@ function getAPI() {
 			displayCard(data);
 			console.log(data)
 		})
-		
+
 		.catch(function (error) {
 
-			// if not in library, say couldn’t be found
 		})
 };
 
@@ -94,27 +87,25 @@ function displayAllPokemon() {
 
 		while (pokeContainer.firstChild) {
 			pokeContainer.removeChild(pokeContainer.firstChild);
-		  }
+		}
 	}
 
 	for (var i = 1; i <= 150; i++) {
-		
+
 		fetch('https://pokeapi.co/api/v2/pokemon/' + i + '/')
 
-		.then(function (response) {
+			.then(function (response) {
 
-			return response.json();
-		})
+				return response.json();
+			})
 
-		.then(function (data) {
+			.then(function (data) {
 
-			displayCard(data);
-		})
+				displayCard(data);
+			})
 
-		.catch(function (error) {
-
-			// if not in library, say couldn’t be found
-		})
+			.catch(function (error) {
+			})
 	}
 };
 
@@ -122,21 +113,21 @@ submitButton.addEventListener('click', getAPI);
 backButton.addEventListener('click', displayAllPokemon);
 var textboxEl = document.querySelector('#textbox-input');
 textboxEl.addEventListener('keypress', function (e) {
-	    if (e.key === 'Enter') {
-	      getAPI();
-	    }
-	});
+	if (e.key === 'Enter') {
+		getAPI();
+	}
+});
 
 displayAllPokemon();
-var pokeSearchHistory = document.getElementById("pokeSearchList") 
+var pokeSearchHistory = document.getElementById("pokeSearchList")
 function getHistory() {
 	var getStorage = JSON.parse(localStorage.getItem("pokesearches"));
 	console.log(getStorage);
 	for (let i = 0; i < getStorage.length; i++) {
 		var newLi = document.createElement("li")
-		newLi.textContent=getStorage[i];
+		newLi.textContent = getStorage[i];
 		pokeSearchHistory.append(newLi);
-		
+
 	}
 }
 getHistory();
