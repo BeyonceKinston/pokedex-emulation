@@ -43,6 +43,7 @@ img {
   font-family: 'Orbitron', sans-serif;
 }
 
+
 #title-head {
   background-color: #ff7272;
   margin-bottom: 10px;
@@ -53,4 +54,9 @@ img {
 
 #poke-container {
   border-style: 5px, white;
+
+#card-text {
+
+  font-size: 50%;
+
 }
