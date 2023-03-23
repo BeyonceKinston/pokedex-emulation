@@ -1,5 +1,4 @@
-var textboxEl = document.querySelector('#textbox-input');
-console.log(textboxEl)
+
 
 var submitButton = document.querySelector('#submit-button');
 var backButton = document.querySelector('#go-back');
@@ -55,6 +54,7 @@ var displayCard = function (data) {
 };
 
 function getAPI() {
+	var textboxEl = document.querySelector('#textbox-input');
 	var userInput = textboxEl.value;
 	var userInputLowerCase = userInput.toLowerCase();
 	console.log(userInput);
@@ -120,6 +120,7 @@ function displayAllPokemon() {
 
 submitButton.addEventListener('click', getAPI);
 backButton.addEventListener('click', displayAllPokemon);
+var textboxEl = document.querySelector('#textbox-input');
 textboxEl.addEventListener('keypress', function (e) {
 	    if (e.key === 'Enter') {
 	      getAPI();
@@ -127,3 +128,15 @@ textboxEl.addEventListener('keypress', function (e) {
 	});
 
 displayAllPokemon();
+var pokeSearchHistory = document.getElementById("pokeSearchList") 
+function getHistory() {
+	var getStorage = JSON.parse(localStorage.getItem("pokesearches"));
+	console.log(getStorage);
+	for (let i = 0; i < getStorage.length; i++) {
+		var newLi = document.createElement("li")
+		newLi.textContent=getStorage[i];
+		pokeSearchHistory.append(newLi);
+		
+	}
+}
+getHistory();
