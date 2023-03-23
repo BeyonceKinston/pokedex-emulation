@@ -1,5 +1,6 @@
 var textboxEl = document.querySelector('#textbox-input');
-var userInput = textboxEl.value;
+console.log(textboxEl)
+
 var submitButton = document.querySelector('#submit-button');
 var backButton = document.querySelector('#go-back');
 var pokeContainer = document.querySelector('#poke-container');
@@ -7,12 +8,12 @@ var pokeContainer = document.querySelector('#poke-container');
 var searchCounter = 0;
 var savedSearches = []
 
-function storeSearches(){
-	localStorage.setItem("pokesearches", savedSearches);
+// function storeSearches(){
+// 	localStorage.setItem("pokesearches", savedSearches);
 
 
-}
-storeSearches();
+// }
+// storeSearches();
 
 var displayCard = function (data) {
 	
@@ -54,11 +55,14 @@ var displayCard = function (data) {
 };
 
 function getAPI() {
-
+	var userInput = textboxEl.value;
+	var userInputLowerCase = userInput.toLowerCase();
+	console.log(userInput);
 	searchCounter++;
 	// Change #2
-	var userInput = textboxEl.value.toLowerCase();
-	localStorage.setItem("pokesearches", userInput);
+	
+	savedSearches.push(userInputLowerCase);
+	localStorage.setItem("pokesearches", JSON.stringify(savedSearches));
 
 	while (pokeContainer.firstChild) {
 		pokeContainer.removeChild(pokeContainer.firstChild);
@@ -123,4 +127,3 @@ textboxEl.addEventListener('keypress', function (e) {
 	});
 
 displayAllPokemon();
-
