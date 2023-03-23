@@ -5,8 +5,17 @@ var backButton = document.querySelector('#go-back');
 var pokeContainer = document.querySelector('#poke-container');
 
 var searchCounter = 0;
+var savedSearches = []
+
+function storeSearches(){
+	localStorage.setItem("pokesearches", savedSearches);
+
+
+}
+storeSearches();
 
 var displayCard = function (data) {
+	
 
 	var columnEl = document.createElement("div");
 	var cardEl = document.createElement("div");
@@ -49,6 +58,8 @@ function getAPI() {
 	searchCounter++;
 	// Change #2
 	var userInput = textboxEl.value.toLowerCase();
+	localStorage.setItem("pokesearches", userInput);
+
 	while (pokeContainer.firstChild) {
 		pokeContainer.removeChild(pokeContainer.firstChild);
 	  }
