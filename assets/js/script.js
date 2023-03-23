@@ -22,6 +22,8 @@ var displayCard = function (data) {
 	var cardEl = document.createElement("div");
 	columnEl.classList.add("column", "is-one-third");
 	cardEl.classList.add("card","mb-5");
+
+	cardEl.setAttribute('id', "card-text");
 	cardEl.textContent = data.name;
 
 	var imgEl = document.createElement("img");
