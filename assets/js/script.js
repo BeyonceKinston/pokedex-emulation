@@ -1,5 +1,4 @@
 
-
 var submitButton = document.querySelector('#submit-button');
 var backButton = document.querySelector('#go-back');
 var pokeContainer = document.querySelector('#poke-container');
@@ -76,6 +75,7 @@ function getAPI() {
 		.then(function (data) {
 
 			displayCard(data);
+			getHistory();
 			console.log(data)
 		})
 
