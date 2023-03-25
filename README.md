@@ -9,7 +9,7 @@ easily search for any Pokemon by name or number. Once I find a Pokemon that inte
 want to be able to view detailed information about its type, abilities, and stats.
 
 ## Usage
-https://hteasdell44.github.io/pokedex-emulation/
+https://beyoncekinston.github.io/pokedex-emulation/
 
 ## Visuals
 ![image](https://user-images.githubusercontent.com/123018143/227315630-581350ec-1f4c-4b5c-b0b2-a3d11ad64b7d.png)
